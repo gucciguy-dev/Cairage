@@ -1,0 +1,337 @@
+@font-face {
+    font-family: 'Objectivity';
+    src: url('fonts/Objectivity/Objectivity-Medium.woff2') format('.woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root{
+    --bg-color: rgb(20,20,20);
+    --card-color: rgb(23,23,23);
+}
+
+body{
+    font-family: 'Objectivity', sans-serif;
+    font-size: clamp(14px, 18px, 22px);
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    overflow:scroll;
+}
+
+header {
+    font-family: 'Objectivity', sans-serif; 
+    color: #FFEFD5;
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background-color: #1f1f1f;
+}
+
+.heading-container {
+    width: 100%;
+    text-align: center;
+    background-color: var(--bg-color);
+    padding-top: 20px;
+}
+  
+.heading-container h1 {
+    color: #FFEFD5;
+    margin: 0;
+}
+
+h1 {
+    color: #FFEFD5;
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none; 
+    color: inherit; 
+}
+
+#cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 32px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px; 
+}
+
+.card:hover::before, 
+.card:hover::after {
+    opacity: 1;
+}
+
+.card{
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 540px;
+    display: grid;
+    width: auto;
+    min-width: 348px;
+    max-width: 440px;
+    position:relative;
+    border-radius: 10px;
+    z-index: 1;
+    margin-bottom: 20px;
+}
+
+.cards:hover > .card > .card-border {
+    opacity: 1;
+}
+
+.card:hover::before {
+    opacity: 1;
+    z-index: 0;
+}
+
+#cards:hover > .card::after {
+    opacity: 1;
+}
+
+.card::before,
+.card::after {
+  border-radius: inherit;
+  content: "";
+  height: 100%;
+  left: 0px;
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  transition: opacity 500ms;
+  width: 100%;
+}
+
+.card::before {
+    background: radial-gradient(
+      800px circle at var(--mouse-x) var(--mouse-y), 
+      rgba(255, 255, 255, 0.06),
+      transparent 40%
+    );
+    z-index: 0;
+}
+
+.card::after {  
+    background: radial-gradient(
+      600px circle at var(--mouse-x) var(--mouse-y), 
+      rgba(255, 255, 255, 0.4),
+      transparent 40%
+    );
+    z-index: 0;
+}
+
+.card > .card-content {
+    background-color: var(--card-color);
+    border-radius: inherit;
+    display: grid;
+    flex-direction: column;
+    flex-grow: 1;
+    inset: 1px;
+    position: absolute;
+    z-index: 2;
+  }
+
+.card-content {
+    z-index: 2;
+    position: relative;
+}
+
+nav ul{
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+    position: relative;
+}
+
+nav ul li{
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a{
+    color: #FFEFD5;
+    margin: 24px;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+main {
+    display: grid;
+    grid-column: 1fr 1fr 1fr;
+    align-items: center;
+    padding: 20px;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+h1{
+    color: #FFEFD5;
+}
+
+section{
+    background: #f1f1f1;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.car-card {
+    height: 540px;
+    max-width: auto; 
+    margin-right: 10px;
+    text-align: center;
+    overflow: hidden; 
+    transition: all 0.3s ease-in-out;
+    color: #f1f1f1;
+}
+
+.car-image {
+    width: auto;
+    height: 100%;
+    max-height: 160px;
+    margin-top: 10%;
+    align-self: center;
+}
+
+.car-name {
+    font-size: 32px;
+    margin-top: 10px;
+    color: #f1f1f1;
+}
+
+.car-info{
+    z-index: 5;
+    position: relative;
+}
+
+#checklist {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
+    gap: 8px; /* Space between items */
+    list-style: none;
+    align-items: center;
+    z-index: 10;
+    padding-right: 12px;
+}
+
+#checklist li {
+    margin-bottom: 10px;
+    text-align: left;
+    z-index: 10;
+    position: relative;
+}
+
+.car-name,
+.car-image {
+    cursor: pointer; /* Show pointer cursor on hover */
+    transition: color 0.2s ease-in-out; /* Smooth transition for text color */
+}
+
+.card:hover .car-name {
+    color: #FF8343; /* Change car-name text color on hover */
+}
+
+@media (max-width: 480px) {
+    .car-name {
+        font-size: 1.2rem;
+    }
+
+    #checklist {
+        grid-template-columns: 1fr; /* Switch to one column on very small screens */
+    }
+
+    #checklist li {
+        font-size: 0.9rem;
+    }
+
+    .card{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(min-width: 600px) {
+    main{
+        grid-template-columns: 1fr;
+    }
+    h1{
+        font-size: clamp(32px, 40px, 48px);
+    }
+    nav ul li{
+        font-size: clamp(20px, 24px, 28px);
+    }
+}
+
+@media (min-width: 900px) {
+    main{
+        grid-template-columns: 1fr 1fr;
+    }
+    h1{
+        font-size: clamp(36px, 44px, 52px);
+    }
+    nav ul li{
+        font-size: clamp(15px, 18px, 20px);
+    }
+}
+
+@media (min-width: 1300px) {
+    main{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+video, audio{
+    max-width: 100%;
+    height: 100;
+}
+
+@keyframes slideIn {
+    from{
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+header h1{
+    animation: slideIn 1s ease-out;
+    z-index: 2;
+    position: relative;
+    margin: 0;
+}
+
+header p{
+    animation: slideIn 1s ease-out;
+    z-index: 2;
+    position: relative;
+    margin: 0;
+}
+
+  /* Car Title Animation */
+  .car-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+    padding-top: 32px;
+}
+
+.car-title {
+    font-size: 48px;
+    margin: 0;
+    display: inline-block;
+    transform: translateX(-100%); /* Start off-screen */
+    animation: slideIn 1s ease-out forwards;
+}
+
+ 
+
+

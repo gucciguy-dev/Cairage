@@ -260,6 +260,8 @@ section{
 @media(min-width: 600px) {
     main{
         grid-template-columns: 1fr;
+        margin-right: 0;
+        margin-left: 0;
     }
     h1{
         font-size: clamp(32px, 40px, 48px);

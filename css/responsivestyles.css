@@ -240,6 +240,12 @@ section{
 }
 
 @media (max-width: 480px) {
+     main{
+        grid-template-columns: 1fr;
+        margin-right: 0;
+        margin-left: 0;
+    }
+    
     .car-name {
         font-size: 1.2rem;
     }
@@ -260,8 +266,8 @@ section{
 @media(min-width: 600px) {
     main{
         grid-template-columns: 1fr;
-        margin-right: 0;
-        margin-left: 0;
+        margin-right: 10%;
+        margin-left: 10%;
     }
     h1{
         font-size: clamp(32px, 40px, 48px);
@@ -274,8 +280,8 @@ section{
 @media (min-width: 900px) {
     main{
         grid-template-columns: 1fr 1fr;
-        margin-right: 5%;
-        margin-left: 5%;
+        margin-right: 15%;
+        margin-left: 15%;
     }
     h1{
         font-size: clamp(36px, 44px, 52px);
@@ -288,8 +294,6 @@ section{
 @media (min-width: 1300px) {
     main{
         grid-template-columns: 1fr 1fr 1fr;
-        margin-right: 10%;
-        margin-left: 10%;
     }
 }
 
